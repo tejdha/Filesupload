@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+
+{%block title%} View Profiels {%endblock%}
+
+{%block s3%} class=selected {%endblock%}
+
+{%block content%}
+    <table>
+        <caption><h1> Applicant Details</h1></caption>
+        {%for v in view%}
+            <tr>
+                <td rowspan="4"><img src="{{v.photo.url}}" width="130px"></td>
+                <th>Full Name : </th>
+                <td>{{v.fname}} {{v.lname}}</td>
+            </tr>
+            <tr>
+                <th>Technologies</th>
+                <td>{{v.tech}}</td>
+            </tr>
+            <tr>
+                <th>Email Id</th>
+                <td>{{v.email}}</td>
+            </tr>
+            <tr>
+                <th>Submission Date : </th>
+                <td>{{v.date}}</td>
+            </tr>
+        {%endfor%}
+        <tr>
+            <td colspan="3" align="center" class="al">
+                <a href="{%url 'home'%}"><button>Home</button></a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center" class="al">
+                <a href="{%url 'profile'%}"><button>Add Profiles</button></a>
+            </td>
+        </tr>
+    </table>
+{%endblock%}

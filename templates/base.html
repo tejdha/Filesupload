@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+{%load static%}
+<html>
+
+<head>
+  <title>{%block title%}Project Title{%endblock%}</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="{%static 'style/style.css'%}"/>
+  <link rel="icon" type="image/x-icon" href="{%static 'favicon/logo.ico' %}">
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="#">Applicants<span class="logo_colour">Profiles</span></a></h1>
+          <h2>Applicants profiles</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li {%block s1%}class=""{%endblock%}><a href="{%url 'home'%}">Home</a></li>
+          <li {%block s2%}class=""{%endblock%}><a href="{%url 'profile'%}">Add Profiles</a></li>
+          <li {%block s3%}class=""{%endblock%}><a href="{%url 'view'%}">View Profiels</a></li>
+          <li {%block s4%}class=""{%endblock%}><a href="{%url 'search'%}">Search Profiles</a></li>
+          <li {%block s5%}class=""{%endblock%}><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    {%block side%}
+        
+    {%endblock%}
+
+      {%block content%}
+          <h2>This is base page</h2>
+      {%endblock%}
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+      Copyright &copy; Project Name  | <a href="#"> Link1 Here</a> | <a href="#">Link2 here</a> | <a href="#">Link3 here</a>
+    </div>
+  </div>
+</body>
+</html>

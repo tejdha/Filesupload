@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+
+{%block title%} Add Profiels {%endblock%}
+
+{%block s2%} class=selected {%endblock%}
+
+{%block content%}
+<form method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <table>
+        <caption><h1>Fill Applicant Details</h1></caption>
+        {{form.as_table}}
+        <tr>
+            <td colspan="2" align="center" class="al">
+                <input type="submit" >
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center" class="al">
+                <input type="reset">
+            </td>
+        </tr>
+    </table>
+</form>
+<table class="la">
+    <tr>
+        <td colspan="2" align="center" >
+            <a href="{%url 'home'%}"><button>Home</button></a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center" >
+            <a href="{%url 'view'%}"><button>See profiles</button></a>
+        </td>
+    </tr>
+</table>
+
+{%if messages%}
+    {%for m in messages%}
+        <h1>{{m}}</h1>
+    {%endfor%}
+{%endif%}
+{%endblock%}

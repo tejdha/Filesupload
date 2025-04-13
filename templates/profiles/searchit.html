@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+
+{%block title%}  Profiels {%endblock%}
+
+{%block s4%} class=selected {%endblock%}
+
+{%block content%}
+<table>
+    {%if pro%}
+    <h2 align="center">Profiles Received on {{pro.0.date}}:</h2>
+    {% for profile in pro %}
+    <tr>       
+        <td>{{profile.fname}}</td>
+        <td>{{profile.email}}</td>
+        <td>{{profile.date}}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="3" class="al"><a href="{%url 'search'%}"><button>Back</button></a></td>
+    </tr>
+
+    {%elif error%}
+        <td style="color: red;">{{ error }}</td>
+    {%else%}
+    <tr>
+        <td>There is no profiles submitted on that date</td>
+    </tr>       
+    
+    <tr>
+        <td class="al"><a href="{%url 'search'%}"><button>Back</button></a></td>
+    </tr>
+        
+    {%endif%}
+</table>
+{%endblock%}
